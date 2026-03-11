@@ -1,8 +1,8 @@
-const API_URL = "http://localhost:5001/analyze-goal";
+﻿const API_URL = "http://localhost:5001/analyze-goal";
 let savingsChart = null;
 
 function formatCurrency(amount) {
-    return "?" + amount.toLocaleString("en-IN");
+    return "Rs. " + amount.toLocaleString("en-IN");
 }
 
 function showError(message) {
@@ -65,12 +65,9 @@ function displayResults(data) {
     }
     
     updateChart(data.targetCost, data.totalSavings);
-    document.getElementById("resultSection").scrollIntoView({ behavior: "smooth" });
 }
 
-async function handleSubmit(e) {
-    e.preventDefault();
-    
+async function analyzeGoal() {
     const goal = document.getElementById("goal").value.trim();
     const targetCost = parseFloat(document.getElementById("targetCost").value);
     const monthlySavings = parseFloat(document.getElementById("monthlySavings").value);
@@ -108,7 +105,3 @@ async function handleSubmit(e) {
         btn.disabled = false;
     }
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("goalForm").addEventListener("submit", handleSubmit);
-});
