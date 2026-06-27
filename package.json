@@ -1,0 +1,14 @@
+{
+  "name": "financial-goal-analyzer-root",
+  "version": "1.0.0",
+  "description": "Root package manager for MERN Financial Planning & Feasibility Predictor",
+  "private": true,
+  "scripts": {
+    "setup": "npm run install-backend && npm run install-frontend",
+    "install-backend": "cd backend && npm install",
+    "install-frontend": "cd frontend && npm install",
+    "build-frontend": "cd frontend && npm run build",
+    "build": "npm run setup && npm run build-frontend",
+    "start": "cd backend && node server.js"
+  }
+}

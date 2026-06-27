@@ -1,81 +1,13 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Financial Goal Feasibility Analyzer</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <title>GoalHorizon | Predictive Financial Planner & Sandbox</title>
 </head>
 <body>
-    <div class="container">
-        <div class="card">
-            <header>
-                <h1>Financial Goal Analyzer</h1>
-                <p>Plan your financial future with confidence</p>
-            </header>
-
-            <form id="goalForm" onsubmit="return false;">
-                <div class="form-group">
-                    <label for="goal">Goal Name</label>
-                    <input type="text" id="goal" placeholder="e.g., Buy a Car" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="targetCost">Target Cost (₹)</label>
-                    <input type="number" id="targetCost" placeholder="e.g., 800000" min="1" required>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="monthlySavings">Monthly Savings (₹)</label>
-                        <input type="number" id="monthlySavings" placeholder="e.g., 15000" min="1" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="years">Timeline (Years)</label>
-                        <input type="number" id="years" placeholder="e.g., 3" min="1" max="50" required>
-                    </div>
-                </div>
-
-                <button type="button" class="analyze-btn" onclick="analyzeGoal()">Analyze Goal</button>
-            </form>
-
-            <div id="errorMessage" class="error-message"></div>
-
-            <div id="resultSection" class="result-section hidden">
-                <h2>Analysis Result</h2>
-                
-                <div class="status-badge" id="statusBadge"></div>
-
-                <div class="metrics-grid">
-                    <div class="metric-card">
-                        <span class="metric-label">Goal</span>
-                        <span class="metric-value" id="resultGoal"></span>
-                    </div>
-                    <div class="metric-card">
-                        <span class="metric-label">Target Cost</span>
-                        <span class="metric-value" id="resultTarget"></span>
-                    </div>
-                    <div class="metric-card">
-                        <span class="metric-label">Possible Savings</span>
-                        <span class="metric-value" id="resultSavings"></span>
-                    </div>
-                    <div class="metric-card">
-                        <span class="metric-label">Savings Gap</span>
-                        <span class="metric-value" id="resultGap"></span>
-                    </div>
-                </div>
-
-                <div class="recommendation" id="recommendation"></div>
-
-                <div class="chart-container">
-                    <canvas id="savingsChart"></canvas>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
 </body>
 </html>
