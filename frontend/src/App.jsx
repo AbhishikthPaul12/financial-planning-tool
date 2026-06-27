@@ -484,6 +484,65 @@ export default function App() {
   const suggestions = generateSuggestions(calculatedData, targetCost, monthlySavings, years, expectedReturn, inflationRate);
   const emiCalculation = calculateEMI(calculatedData, customLoanAmount, loanInterest, loanTenure);
 
+  if (!token) {
+    return (
+      <div className="auth-wall-container animate-fade">
+        <div className="auth-wall-card">
+          <div className="auth-wall-header">
+            <img src="/logo.png" alt="GoalHorizon Logo" className="auth-wall-logo" />
+            <h1 className="brand-title">GoalHorizon</h1>
+            <p>Predict goal feasibility, sandbox savings growth pathways, and estimate EMIs under a secure personal portfolio.</p>
+          </div>
+          
+          <div className="auth-wall-tabs">
+            <button 
+              onClick={() => { setAuthMode('login'); setAuthError(''); }}
+              className={`auth-tab-btn ${authMode === 'login' ? 'active' : ''}`}
+            >
+              Sign In
+            </button>
+            <button 
+              onClick={() => { setAuthMode('register'); setAuthError(''); }}
+              className={`auth-tab-btn ${authMode === 'register' ? 'active' : ''}`}
+            >
+              Register
+            </button>
+          </div>
+
+          <form onSubmit={handleAuthSubmit} className="auth-wall-form">
+            {authError && <div className="modal-error-alert">{authError}</div>}
+            
+            <div className="modal-form-group">
+              <label>Username</label>
+              <input 
+                type="text" 
+                value={authUsername}
+                onChange={(e) => setAuthUsername(e.target.value)}
+                placeholder="Enter username (min 3 chars)"
+                required
+              />
+            </div>
+
+            <div className="modal-form-group">
+              <label>Password</label>
+              <input 
+                type="password" 
+                value={authPassword}
+                onChange={(e) => setAuthPassword(e.target.value)}
+                placeholder="Enter password (min 5 chars)"
+                required
+              />
+            </div>
+
+            <button type="submit" className={`auth-wall-submit ${authMode === 'login' ? 'btn-blue' : 'btn-emerald'}`}>
+              {authMode === 'login' ? 'Sign In' : 'Create Account'}
+            </button>
+          </form>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="app-container">
       {/* Top Navigation */}
